@@ -5,11 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Campus Reports | Empowering Student Voices</title>
-    <meta name="description" content="Campus Reports is a secure platform for students to report campus issues, request maintenance, and track resolution progress in real-time.">
+    <title>Campus Reports | Student Issue Reporting & Maintenance Platform</title>
+    <meta name="description" content="Campus Reports is a student-first platform for anonymous issue reporting, maintenance requests, and real-time tracking of campus problems at Kapasa Makasa University.">
+    <meta name="keywords" content="Campus Reports, student reporting platform, university maintenance requests, anonymous reporting, campus issue tracking, KMU">
     <meta name="author" content="Daniel Chali">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://campusreports.vercel.app/">
+    <meta property="og:title" content="Campus Reports | Student Issue Reporting & Maintenance Platform">
+    <meta property="og:description" content="Report campus issues, request maintenance, and track progress in real time with Campus Reports.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://campusreports.vercel.app/">
+    <meta property="og:image" content="https://campusreports.vercel.app/assets/UI/dashboard.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Campus Reports | Student Issue Reporting & Maintenance Platform">
+    <meta name="twitter:description" content="Anonymous campus reporting and maintenance requests for students.">
+    <meta name="twitter:image" content="https://campusreports.vercel.app/assets/UI/dashboard.png">
     
     <link rel="icon" type="image/svg+xml" href="assets/kmu_logo.svg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Campus Reports",
+      "url": "https://campusreports.vercel.app/",
+      "description": "A student-first platform for anonymous campus issue reporting, maintenance requests, and real-time progress tracking.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Campus Reports"
+      }
+    }
+    </script>
 
     <style>
         :root {
@@ -325,10 +350,10 @@
     </header>
 
     <main>
-        <div class="hero-content">
+        <section class="hero-content" aria-labelledby="hero-title">
             <div class="eyebrow">Kapasa Makasa University</div>
-            <h1>Report Issues. Request Maintenance. Track Progress.</h1>
-            <p class="description">A secure student-first platform for anonymous reporting, facility maintenance requests, and real-time updates from submission to resolution.</p>
+            <h1 id="hero-title">Report Issues. Request Maintenance. Track Progress.</h1>
+            <p class="description">Campus Reports is a secure student-first platform for anonymous reporting, facility maintenance requests, and real-time updates from submission to resolution.</p>
             
             <div class="cta-group">
                 <a href="https://campusreports.vercel.app/" class="btn btn-primary">
@@ -338,7 +363,7 @@
                 <a href="https://campusreports.vercel.app/anonymous-report" class="btn btn-secondary">Report Anonymously</a>
             </div>
 
-            <div class="features-minimal">
+            <div class="features-minimal" aria-label="Key platform features">
                 <div class="feature-item">
                     <h3>Anonymous</h3>
                     <p>Submit reports without revealing your identity</p>
@@ -352,7 +377,7 @@
                     <p>Follow every issue from submission to resolution</p>
                 </div>
             </div>
-        </div>
+        </section>
 
         <div class="ui-showcase" aria-label="Campus Reports UI preview">
             <div class="ui-frame" id="ui-frame"></div>

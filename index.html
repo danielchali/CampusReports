@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Campus Reports | Login</title>
+    <title>Campus Reports | Empowering Student Voices</title>
     <meta name="description" content="Campus Reports is a secure platform for students to report campus issues, request maintenance, and track resolution progress in real-time.">
     <meta name="author" content="Daniel Chali">
     
@@ -16,8 +16,8 @@
             --primary: #008542;
             --primary-dark: #056f39;
             --secondary: #475569;
-            --text: #111827;
-            --bg-overlay: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
+            --bg-overlay: rgba(0, 0, 0, 0.4);
         }
 
         * {
@@ -37,6 +37,7 @@
             background-position: center;
             background-repeat: no-repeat;
             overflow: hidden;
+            position: relative;
         }
 
         .overlay {
@@ -45,14 +46,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            background: var(--bg-overlay);
             z-index: 1;
         }
 
         header {
             position: relative;
             z-index: 10;
-            padding: 2rem;
+            padding: 2rem 4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,26 +61,20 @@
 
         .logo-container {
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            align-items: center;
+            gap: 1rem;
         }
 
         .logo-img {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
         }
 
         .brand-name {
-            font-size: 2.5rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            color: var(--primary);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .tagline {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1.1rem;
+            color: white;
+            letter-spacing: -0.02em;
         }
 
         main {
@@ -87,167 +82,140 @@
             z-index: 10;
             flex: 1;
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 0 10% 5% 0;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4rem;
+            max-width: 1200px;
         }
 
-        .login-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            text-align: center;
+        .hero-content {
+            max-width: 700px;
         }
 
-        .login-card h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: #1e293b;
+        .eyebrow {
+            color: #4ade80;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .login-card p {
-            color: #64748b;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-            text-align: left;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus {
-            border-color: var(--primary);
-        }
-
-        .options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        h1 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
-            font-size: 0.875rem;
-            color: #64748b;
+            color: white;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        p.description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .btn {
-            width: 100%;
-            padding: 0.875rem;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .btn-primary {
             background-color: var(--primary);
             color: white;
-            margin-bottom: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 133, 66, 0.4);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(0, 133, 66, 0.5);
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #e2e8f0;
-            color: #64748b;
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 4rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
         }
 
-        .btn-outline:hover {
-            background: #f8fafc;
-        }
-
-        .divider {
-            margin: 1.5rem 0;
-            display: flex;
-            align-items: center;
-            color: #94a3b8;
-            font-size: 0.875rem;
-        }
-
-        .divider::before, .divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #e2e8f0;
-        }
-
-        .divider span {
-            padding: 0 1rem;
-        }
-
-        .footer-links {
-            margin-top: 1.5rem;
-            font-size: 0.875rem;
-            color: #64748b;
-        }
-
-        .footer-links a {
-            color: var(--primary);
+        .footer a {
+            color: white;
             text-decoration: none;
             font-weight: 600;
         }
 
-        .bottom-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 10;
-            padding: 1.5rem;
+        .features-minimal {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
-        .stat-item {
+        .feature-item {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 0.5rem;
-            font-size: 0.875rem;
-            color: #1e293b;
-            font-weight: 500;
         }
 
-        .stat-icon {
-            color: var(--primary);
+        .feature-item h3 {
+            font-size: 1rem;
+            color: #4ade80;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         @media (max-width: 768px) {
-            main {
-                justify-content: center;
-                padding: 0 1rem;
+            header, main, .footer {
+                padding: 1.5rem 2rem;
             }
-            header {
-                padding: 1rem;
+            h1 {
+                font-size: 2.5rem;
             }
-            .brand-name {
-                font-size: 1.75rem;
+            .features-minimal {
+                flex-direction: column;
+                gap: 1.5rem;
             }
-            .bottom-bar {
-                display: none;
+            .footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
         }
     </style>
@@ -258,60 +226,47 @@
     <header>
         <div class="logo-container">
             <img src="assets/kmu_logo.svg" alt="KMU Logo" class="logo-img">
-            <h1 class="brand-name">Campus Reports</h1>
-            <p class="tagline">Report issues. Request maintenance. Improve campus life.</p>
+            <span class="brand-name">Campus Reports</span>
         </div>
+        <nav>
+            <a href="https://campusreports.vercel.app/login" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Sign In</a>
+        </nav>
     </header>
 
     <main>
-        <div class="login-card">
-            <h2>Welcome!</h2>
-            <p>Login to your Campus Reports account</p>
+        <div class="hero-content">
+            <div class="eyebrow">Kapasa Makasa University</div>
+            <h1>Empowering Students to <br>Build a Better Campus.</h1>
+            <p class="description">The all-in-one platform for reporting infrastructure issues, requesting facility maintenance, and ensuring your voice is heard by university administration.</p>
             
-            <form>
-                <div class="form-group">
-                    <input type="text" placeholder="Email address or Student ID">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password">
-                </div>
-                
-                <div class="options">
-                    <label><input type="checkbox"> Remember me</label>
-                    <a href="#" style="color: var(--primary); text-decoration: none;">Forgot Password?</a>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Log In</button>
-            </form>
-            
-            <div class="divider">
-                <span>or report without login</span>
+            <div class="cta-group">
+                <a href="https://campusreports.vercel.app/" class="btn btn-primary">
+                    Launch Application
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="https://campusreports.vercel.app/anonymous-report" class="btn btn-secondary">Report Anonymously</a>
             </div>
-            
-            <a href="#" class="btn btn-outline">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
-                Report Anonymously
-            </a>
-            
-            <div class="footer-links">
-                New to the system? <a href="#">Register</a>
+
+            <div class="features-minimal">
+                <div class="feature-item">
+                    <h3>Secure</h3>
+                    <p>Encrypted & Private Data</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Real-time</h3>
+                    <p>Live Tracking System</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Inclusive</h3>
+                    <p>Built for Every Student</p>
+                </div>
             </div>
         </div>
     </main>
 
-    <div class="bottom-bar">
-        <div class="stat-item">
-            <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            Secure Platform
-        </div>
-        <div class="stat-item">
-            <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            Your Voice Matters
-        </div>
-        <div class="stat-item">
-            <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            Better Campus, Together
-        </div>
-    </div>
+    <footer class="footer">
+        <div>© 2026 Campus Reports. Developed by <a href="https://danielchali.github.io/">Daniel Chali</a></div>
+        <div>Part of the KMU Digital Ecosystem</div>
+    </footer>
 </body>
 </html>

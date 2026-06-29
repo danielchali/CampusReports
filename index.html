@@ -17,7 +17,7 @@
             --primary-dark: #056f39;
             --secondary: #475569;
             --text: #ffffff;
-            --bg-overlay: rgba(0, 0, 0, 0.4);
+            --bg-overlay: rgba(2, 6, 23, 0.72);
         }
 
         * {
@@ -28,32 +28,30 @@
         }
 
         body {
-            height: 100vh;
+            min-height: 100vh;
             width: 100vw;
             display: flex;
             flex-direction: column;
-            background-image: url('assets/kmu_campus.png');
+            background: linear-gradient(110deg, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.8) 45%, rgba(2, 6, 23, 0.66) 100%), url('assets/kmu_campus.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
 
         .overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-overlay);
+            inset: 0;
+            background: linear-gradient(90deg, rgba(2, 6, 23, 0.92) 0%, rgba(2, 6, 23, 0.72) 38%, rgba(2, 6, 23, 0.32) 100%);
             z-index: 1;
+            pointer-events: none;
         }
 
         header {
             position: relative;
             z-index: 10;
-            padding: 2rem 4rem;
+            padding: 1.5rem 4rem 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -82,46 +80,55 @@
             z-index: 10;
             flex: 1;
             display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 480px);
             align-items: center;
-            gap: 2.5rem;
-            padding: 0 4rem;
-            max-width: 1400px;
+            gap: clamp(1.5rem, 3vw, 3rem);
+            padding: 2rem 4rem 2rem;
             width: 100%;
             margin: 0 auto;
+            max-width: 1320px;
         }
 
         .hero-content {
-            max-width: 700px;
-            flex: 1;
+            max-width: 680px;
+            width: 100%;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            backdrop-filter: none;
         }
 
         .ui-showcase {
+            position: relative;
             width: 100%;
-            max-width: 680px;
+            max-width: 560px;
             justify-self: end;
+            margin-left: auto;
         }
 
         .ui-frame {
             position: relative;
-            border-radius: 1.8rem;
+            border-radius: 0;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(16px);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.32);
-            aspect-ratio: 16 / 10;
-            min-height: 420px;
+            border: 0;
+            box-shadow: none;
+            aspect-ratio: 4 / 4.6;
+            background: transparent;
         }
+
 
         .ui-image {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
+            background-color: transparent;
             opacity: 0;
             transition: opacity 0.8s ease;
+            filter: saturate(1.05) contrast(1.03);
         }
 
         .ui-image.active {
@@ -129,10 +136,12 @@
         }
 
         .ui-indicators {
+            position: absolute;
+            left: 1.25rem;
+            bottom: 1.25rem;
             display: flex;
-            justify-content: center;
             gap: 0.5rem;
-            margin-top: 1rem;
+            z-index: 12;
         }
 
         .indicator {
@@ -151,26 +160,26 @@
         .eyebrow {
             color: #4ade80;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.18em;
         }
 
         h1 {
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.25rem;
             color: white;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            text-shadow: 0 4px 16px rgba(0,0,0,0.25);
         }
 
         p.description {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.86);
+            margin-bottom: 2rem;
+            line-height: 1.7;
             max-width: 600px;
         }
 
@@ -181,10 +190,10 @@
         }
 
         .btn {
-            padding: 1rem 2.5rem;
+            padding: 0.9rem 1.45rem;
             border-radius: 9999px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
@@ -205,7 +214,7 @@
         }
 
         .btn-secondary {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.12);
             color: white;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -219,12 +228,15 @@
         .footer {
             position: relative;
             z-index: 10;
-            padding: 2rem 4rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            padding: 1.5rem 4rem 2rem;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.95rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
         }
 
         .footer a {
@@ -235,8 +247,9 @@
 
         .features-minimal {
             display: flex;
-            gap: 3rem;
-            margin-top: 4rem;
+            gap: 2rem;
+            margin-top: 2.25rem;
+            flex-wrap: wrap;
         }
 
         .feature-item {
@@ -246,35 +259,38 @@
         }
 
         .feature-item h3 {
-            font-size: 1rem;
+            font-size: 0.8rem;
             color: #4ade80;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.14em;
         }
 
         .feature-item p {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.76);
         }
 
         @media (max-width: 768px) {
             header, main, .footer {
-                padding: 1.5rem 2rem;
+                padding: 1.25rem 1.5rem;
             }
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             main {
                 grid-template-columns: 1fr;
-                gap: 2rem;
                 padding: 0 2rem 2rem;
+                gap: 1.75rem;
+            }
+            .hero-content {
+                padding: 1.75rem;
             }
             .ui-showcase {
-                justify-self: stretch;
                 max-width: none;
             }
-            .ui-frame {
-                min-height: 280px;
+            .ui-indicators {
+                left: 1rem;
+                bottom: 1rem;
             }
             .features-minimal {
                 flex-direction: column;
@@ -304,8 +320,8 @@
     <main>
         <div class="hero-content">
             <div class="eyebrow">Kapasa Makasa University</div>
-            <h1>Empowering Students to <br>Build a Better Campus.</h1>
-            <p class="description">The all-in-one platform for reporting infrastructure issues, requesting facility maintenance, and ensuring your voice is heard by university administration.</p>
+            <h1>Report Issues. Request Maintenance. Track Progress.</h1>
+            <p class="description">A secure student-first platform for anonymous reporting, facility maintenance requests, and real-time updates from submission to resolution.</p>
             
             <div class="cta-group">
                 <a href="https://campusreports.vercel.app/" class="btn btn-primary">
@@ -317,16 +333,16 @@
 
             <div class="features-minimal">
                 <div class="feature-item">
-                    <h3>Secure</h3>
-                    <p>Encrypted & Private Data</p>
+                    <h3>Anonymous</h3>
+                    <p>Submit reports without revealing your identity</p>
                 </div>
                 <div class="feature-item">
-                    <h3>Real-time</h3>
-                    <p>Live Tracking System</p>
+                    <h3>Maintenance</h3>
+                    <p>Request repairs and facility support quickly</p>
                 </div>
                 <div class="feature-item">
-                    <h3>Inclusive</h3>
-                    <p>Built for Every Student</p>
+                    <h3>Tracked</h3>
+                    <p>Follow every issue from submission to resolution</p>
                 </div>
             </div>
         </div>

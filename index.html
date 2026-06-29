@@ -81,15 +81,71 @@
             position: relative;
             z-index: 10;
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 2.5rem;
             padding: 0 4rem;
-            max-width: 1200px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
         }
 
         .hero-content {
             max-width: 700px;
+            flex: 1;
+        }
+
+        .ui-showcase {
+            width: 100%;
+            max-width: 680px;
+            justify-self: end;
+        }
+
+        .ui-frame {
+            position: relative;
+            border-radius: 1.8rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.32);
+            aspect-ratio: 16 / 10;
+            min-height: 420px;
+        }
+
+        .ui-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .ui-image.active {
+            opacity: 1;
+        }
+
+        .ui-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .indicator {
+            width: 0.7rem;
+            height: 0.7rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            width: 1.8rem;
+            background: #4ade80;
         }
 
         .eyebrow {
@@ -208,6 +264,18 @@
             h1 {
                 font-size: 2.5rem;
             }
+            main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 2rem 2rem;
+            }
+            .ui-showcase {
+                justify-self: stretch;
+                max-width: none;
+            }
+            .ui-frame {
+                min-height: 280px;
+            }
             .features-minimal {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -262,11 +330,45 @@
                 </div>
             </div>
         </div>
+
+        <div class="ui-showcase" aria-label="Campus Reports UI preview">
+            <div class="ui-frame">
+                <img src="assets/UI/dashboard.png" class="ui-image active" alt="Campus Reports dashboard preview">
+                <img src="assets/UI/sidebar.png" class="ui-image" alt="Campus Reports sidebar preview">
+                <img src="assets/UI/UI.png" class="ui-image" alt="Campus Reports full interface preview">
+            </div>
+            <div class="ui-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
         <div>© 2026 Campus Reports. Developed by <a href="https://danielchali.github.io/">Daniel Chali</a></div>
         <div>Part of the KMU Digital Ecosystem</div>
     </footer>
+
+    <script>
+        const images = Array.from(document.querySelectorAll('.ui-image'));
+        const indicators = Array.from(document.querySelectorAll('.indicator'));
+        let activeIndex = 0;
+
+        function setActiveSlide(index) {
+            activeIndex = index;
+            images.forEach((image, imageIndex) => {
+                image.classList.toggle('active', imageIndex === activeIndex);
+            });
+            indicators.forEach((indicator, indicatorIndex) => {
+                indicator.classList.toggle('active', indicatorIndex === activeIndex);
+            });
+        }
+
+        setInterval(() => {
+            const nextIndex = (activeIndex + 1) % images.length;
+            setActiveSlide(nextIndex);
+        }, 3200);
+    </script>
 </body>
 </html>

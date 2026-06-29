@@ -5,38 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Campus Reports | Issue Reporting & Maintenance Management</title>
-    <meta name="description" content="Campus Reports is a secure platform for students to report campus issues, request maintenance, and track resolution progress in real-time. Build a better campus together.">
-    <meta name="keywords" content="campus reports, student reporting, campus maintenance, university issue tracker, student voice, campus safety, facility management, daniel chali, chali daniel,kmu, kapasa makasa university campus feedback, anonymous reporting, student engagement, university infrastructure, campus improvement, maintenance requests, real-time tracking">
+    <title>Campus Reports | Login</title>
+    <meta name="description" content="Campus Reports is a secure platform for students to report campus issues, request maintenance, and track resolution progress in real-time.">
     <meta name="author" content="Daniel Chali">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://danielchali.github.io/">
-    <meta property="og:title" content="Campus Reports | Empowering Student Voices">
-    <meta property="og:description" content="Report campus issues and track maintenance requests in real-time. Secure, fast, and inclusive for all students.">
-    <meta property="og:image" content="https://danielchali.github.io/assets/kmu_campus.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://danielchali.github.io/">
-    <meta property="twitter:title" content="Campus Reports | Empowering Student Voices">
-    <meta property="twitter:description" content="Report campus issues and track maintenance requests in real-time. Secure, fast, and inclusive for all students.">
-    <meta property="twitter:image" content="https://danielchali.github.io/assets/kmu_campus.png">
-
-    <link rel="canonical" href="https://danielchali.github.io/">
+    <link rel="icon" type="image/svg+xml" href="assets/kmu_logo.svg">
 
     <style>
         :root {
             --primary: #008542;
             --primary-dark: #056f39;
             --secondary: #475569;
-            --accent: #f59e0b;
             --text: #111827;
-            --text-light: #475569;
-            --bg: #f1f5f9;
-            --surface: #ffffff;
-            --border: rgba(226, 232, 240, 0.8);
+            --bg-overlay: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -47,552 +28,290 @@
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            background-image: url('assets/kmu_campus.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
         header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
-        .logo {
-            font-size: 1.5rem;
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .brand-name {
+            font-size: 2.5rem;
             font-weight: 800;
             color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .logo svg {
-            width: 32px;
-            height: 32px;
-            fill: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
+        .tagline {
             color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
-        .nav-toggle {
-            display: none;
-            background: transparent;
-            border: 1px solid rgba(71, 85, 105, 0.16);
-            color: var(--secondary);
-            padding: 0.75rem;
-            border-radius: 9999px;
-            cursor: pointer;
+        main {
+            position: relative;
+            z-index: 10;
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 10% 5% 0;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .login-card h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .login-card p {
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+            text-align: left;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #64748b;
         }
 
         .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
+            width: 100%;
+            padding: 0.875rem;
+            border-radius: 0.75rem;
             font-weight: 600;
-            text-decoration: none;
-            transition: all 0.25s ease;
+            font-size: 1rem;
             cursor: pointer;
             border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            transition: all 0.2s;
         }
 
         .btn-primary {
             background-color: var(--primary);
-            color: var(--surface);
-            box-shadow: 0 20px 50px rgba(0, 133, 66, 0.12);
+            color: white;
+            margin-bottom: 1rem;
         }
 
         .btn-primary:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-1px);
         }
 
-        .btn-secondary {
-            background-color: rgba(255, 255, 255, 0.7);
-            color: var(--secondary);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.95);
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 2.5rem;
-            align-items: center;
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.75rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            line-height: 1.05;
-            color: #0f172a;
-            letter-spacing: -0.04em;
-            text-align: left;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            max-width: 660px;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .hero-btns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .hero-image {
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(226, 232, 240, 0.8);
-            background: var(--surface);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .hero-meta {
-            color: var(--secondary);
-            font-weight: 500;
-            margin-top: 1rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features {
-            background: var(--surface);
-            padding: 6rem 2rem;
-            border-top: 1px solid rgba(226, 232, 240, 1);
-        }
-
-        .features-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .feature-card {
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.7);
-            box-shadow: 0 25px 50px -12px rgba(226, 232, 240, 0.8);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 28px 60px -16px rgba(226, 232, 240, 0.9);
-        }
-
-        .feature-icon {
-            width: 3.5rem;
-            height: 3.5rem;
-            background: var(--white);
-            color: var(--primary);
-            border-radius: 1rem;
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            color: #64748b;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            gap: 0.5rem;
         }
 
-        .feature-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: currentColor;
-            stroke-width: 2;
-            fill: none;
+        .btn-outline:hover {
+            background: #f8fafc;
         }
 
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #0f172a;
+        .divider {
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 0.875rem;
         }
 
-        .feature-card p {
-            color: var(--text-light);
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
         }
 
-        .stats {
-            padding: 4rem 2rem 6rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            text-align: center;
+        .divider span {
+            padding: 0 1rem;
+        }
+
+        .footer-links {
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .bottom-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
         }
 
         .stat-item {
-            padding: 1.75rem 1.5rem;
-            background: var(--surface);
-            border-radius: 1.5rem;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 25px 50px -20px rgba(226, 232, 240, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #1e293b;
+            font-weight: 500;
         }
 
-        .stat-item h4 {
-            font-size: 3rem;
-            font-weight: 800;
+        .stat-icon {
             color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            font-weight: 600;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-size: 0.875rem;
-        }
-
-        footer {
-            padding: 5rem 2rem;
-            background: #0f172a;
-            color: #94a3b8;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-content a {
-            color: #94a3b8;
-            text-decoration: none;
-        }
-
-        .footer-content a:hover {
-            color: var(--surface);
-        }
-
-        @media (max-width: 900px) {
-            .nav-toggle {
-                display: inline-flex;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                gap: 0;
-                background: rgba(255, 255, 255, 0.95);
-                padding: 1rem 2rem 1.5rem;
-                border-bottom: 1px solid rgba(226, 232, 240, 1);
-                box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
-            }
-
-            .nav-links.open {
-                display: flex;
-            }
-
-            .nav-links a {
-                padding: 0.75rem 0;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .footer-brand .logo {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-brand .logo svg {
-            fill: var(--white);
-        }
-
-        .footer-links h5 {
-            color: var(--white);
-            font-size: 1.125rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links ul li a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid #1e293b;
-            text-align: center;
-            font-size: 0.875rem;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .nav-links { display: none; }
-            .hero-btns { flex-direction: column; }
+            main {
+                justify-content: center;
+                padding: 0 1rem;
+            }
+            header {
+                padding: 1rem;
+            }
+            .brand-name {
+                font-size: 1.75rem;
+            }
+            .bottom-bar {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="overlay"></div>
+    
     <header>
-        <a href="/" class="logo" aria-label="Campus Reports Home">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L3 7v10l9 5 9-5V7l-9-5zm0 2.18l7 3.89v8.22l-7 3.89-7-3.89V8.07l7-3.89zM12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
-            </svg>
-            <span>Campus Reports</span>
-        </a>
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
-        <nav class="nav-links" aria-label="Primary navigation">
-            <a href="#features">Features</a>
-            <a href="#how-it-works">How it Works</a>
-            <a href="/signup">Register</a>
-        </nav>
-        <a href="/login" class="btn btn-primary">Login</a>
+        <div class="logo-container">
+            <img src="assets/kmu_logo.svg" alt="KMU Logo" class="logo-img">
+            <h1 class="brand-name">Campus Reports</h1>
+            <p class="tagline">Report issues. Request maintenance. Improve campus life.</p>
+        </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div>
-                <div class="eyebrow">Campus reporting made easy</div>
-                <h1>Empowering Students to <br><span style="color: var(--primary);">Build a Better Campus.</span></h1>
-                <p>The all-in-one platform for reporting infrastructure issues, requesting facility maintenance, and ensuring your voice is heard by university administration.</p>
-                <div class="hero-btns">
-                    <a href="/signup" class="btn btn-primary">Get Started</a>
-                    <a href="/anonymous-report" class="btn btn-secondary">Report Anonymously</a>
+        <div class="login-card">
+            <h2>Welcome!</h2>
+            <p>Login to your Campus Reports account</p>
+            
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Email address or Student ID">
                 </div>
-                <p class="hero-meta">Built by students for students — faster issue reporting and better campus care.</p>
-            </div>
-            <div class="hero-image">
-                <img src="assets/kmu_campus.png" alt="Campus view image" />
-            </div>
-        </section>
-
-        <section class="stats">
-            <div class="stat-item">
-                <h4>24/7</h4>
-                <p>Availability</p>
-            </div>
-            <div class="stat-item">
-                <h4>100%</h4>
-                <p>Secure & Private</p>
-            </div>
-            <div class="stat-item">
-                <h4>Fast</h4>
-                <p>Resolution Tracking</p>
-            </div>
-        </section>
-
-        <section id="features" class="features">
-            <div class="section-title">
-                <h2>Designed for Campus Life</h2>
-                <p>Modern tools to bridge the gap between students and campus maintenance teams.</p>
-            </div>
-            <div class="features-grid">
-                <article class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                    </div>
-                    <h3>Secure & Anonymous</h3>
-                    <p>Report sensitive issues with confidence. Our platform ensures your identity is protected while providing administrators with necessary details.</p>
-                </article>
-                <article class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Real-time Tracking</h3>
-                    <p>No more wondering about the status of your request. Get instant updates as maintenance teams pick up and resolve your reports.</p>
-                </article>
-                <article class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3>Inclusive Platform</h3>
-                    <p>Built for every student. Easy-to-use interface that works on any device, ensuring everyone can contribute to a better campus environment.</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="about" style="padding: 6rem 2rem; max-width: 1200px; margin: 0 auto;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
-                <div>
-                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">Why Campus Reports?</h2>
-                    <p style="margin-bottom: 1.5rem; color: var(--text-light);">We believe that a well-maintained campus is essential for academic success. Traditional reporting methods are often slow, opaque, and frustrating for students.</p>
-                    <p style="color: var(--text-light);">Campus Reports digitizes the entire process, creating transparency and accountability. By providing data-driven insights to administrators, we help prioritize the most critical campus needs.</p>
+                <div class="form-group">
+                    <input type="password" placeholder="Password">
                 </div>
-                <div style="background: var(--primary); padding: 3rem; border-radius: 1.5rem; color: var(--white);">
-                    <h3 style="margin-bottom: 1rem;">Our Mission</h3>
-                    <p style="font-size: 1.25rem; font-style: italic; opacity: 0.9;">"To provide every student with a powerful, accessible voice in their campus community, fostering a culture of care and excellence in university infrastructure."</p>
+                
+                <div class="options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" style="color: var(--primary); text-decoration: none;">Forgot Password?</a>
                 </div>
+                
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+            
+            <div class="divider">
+                <span>or report without login</span>
             </div>
-        </section>
+            
+            <a href="#" class="btn btn-outline">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                Report Anonymously
+            </a>
+            
+            <div class="footer-links">
+                New to the system? <a href="#">Register</a>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="/" class="logo" aria-label="Campus Reports Home">
-                    <img src="assets/kmu_logo.svg" alt="Campus Reports logo" />
-                    <span>Campus Reports</span>
-                </a>
-                <p>Making campus life better for students, one report at a time.</p>
-            </div>
-            <div class="footer-links">
-                <h5>Quick links</h5>
-                <ul>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">Register</a></li>
-                    <li><a href="/anonymous-report">Anonymous Report</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h5>About</h5>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About Us</a></li>
-                </ul>
-            </div>
+    <div class="bottom-bar">
+        <div class="stat-item">
+            <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Secure Platform
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Campus Reports. Empowering student voices for a better campus.</p>
-            <p>Built by <a href="https://danielchali.github.io" target="_blank" rel="noopener">Daniel Chali</a></p>
+        <div class="stat-item">
+            <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            Your Voice Matters
         </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (navToggle && navLinks) {
-            navToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('open');
-            });
-
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('open');
-                });
-            });
-        }
-
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.feature-card, .stat-item, #about > div').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-            observer.observe(el);
-        });
-    </script>
+        <div class="stat-item">
+            <svg class="stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Better Campus, Together
+        </div>
+    </div>
 </body>
 </html>
